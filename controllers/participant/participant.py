@@ -53,7 +53,7 @@ initialVelocity = 0.7 * maxMotorVelocity
 # Set the initial velocity of the left and right wheel motors.
 leftMotor.setVelocity(initialVelocity)
 rightMotor.setVelocity(initialVelocity)
-escala = 0.5
+escala = 2
 while robot.step(timeStep) != -1:
     # Read values from four distance sensors and calibrate.
     outerLeftSensorValue = outerLeftSensor.getValue() / distanceSensorCalibrationConstant
