@@ -53,7 +53,7 @@ initialVelocity = 0.7 * maxMotorVelocity
 # Set the initial velocity of the left and right wheel motors.
 leftMotor.setVelocity(initialVelocity)
 rightMotor.setVelocity(initialVelocity)
-escala = 2
+escala = 1
 while robot.step(timeStep) != -1:
     # Read values from four distance sensors and calibrate.
     outerLeftSensorValue = outerLeftSensor.getValue() / distanceSensorCalibrationConstant
@@ -67,5 +67,5 @@ while robot.step(timeStep) != -1:
     if abs(desvio*180.0/math.pi)<2.0:
         desvio = 0.0
     # Set wheel velocities based on sensor values, prefer right turns if the central sensor is triggered.
-    leftMotor.setVelocity(initialVelocity - (centralRightSensorValue + outerRightSensorValue) / 2)
-    rightMotor.setVelocity(initialVelocity - (centralLeftSensorValue + outerLeftSensorValue) / 2 - centralSensorValue + desvio * escala)
+    leftMotor.setVelocity(initialVelocity - (centralRightSensorValue + outerRightSensorValue) / 2 + desvio)
+    rightMotor.setVelocity(initialVelocity - (centralLeftSensorValue + outerLeftSensorValue) / 2 - centralSensorValue * escala)
