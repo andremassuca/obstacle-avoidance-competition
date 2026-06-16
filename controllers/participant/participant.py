@@ -67,5 +67,5 @@ while robot.step(timeStep) != -1:
     if abs(desvio*180.0/math.pi)<2.0:
         desvio = 0.0
     # Set wheel velocities based on sensor values, prefer right turns if the central sensor is triggered.
-    leftMotor.setVelocity(initialVelocity - (centralRightSensorValue + outerRightSensorValue) / 2 )
-    rightMotor.setVelocity(initialVelocity - (centralLeftSensorValue + outerLeftSensorValue) / 2 - centralSensorValue + desvio)
+    leftMotor.setVelocity(initialVelocity - (centralRightSensorValue + outerRightSensorValue) / 2 - centralSensorValue)
+    rightMotor.setVelocity(initialVelocity - (centralLeftSensorValue + outerLeftSensorValue) / 2 + desvio)
